@@ -10,8 +10,8 @@ namespace GradeBookTests
     ///     This class contains all tests related to the "Add New GradeBookType Enum to BaseGradeBook" task group.
     ///     Note: Do not use these tests as example of good testing practices, due to the nature of how PluralSight projects work
     ///     we have to create tests against code that doesn't exist and changes implementation, due to this tests are fragile,
-    ///     hard to maintain, and don't don't adhere to the "test just one thing" practice commonly used in production tests.
-    /// </summary>t
+    ///     hard to maintain, and don't adhere to the "test just one thing" practice commonly used in production tests.
+    /// </summary>
     public class AddNewGradeBookTypeEnumToBaseGradeBookTests
     {
         /// <summary>
