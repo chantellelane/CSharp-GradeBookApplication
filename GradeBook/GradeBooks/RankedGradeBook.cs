@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
@@ -9,10 +9,12 @@ using GradeBook.Enums;
 namespace GradeBook.GradeBooks
 {
     public class RankedGradeBook : BaseGradeBook
-    { // Determined by peer results, top 20% get A, 20% get b....
-         public RankedGradeBook(string name) : base(name)
+    {
+        // Determined by peer results, top 20% get A, 20% get b....
+        public RankedGradeBook(string name, bool isWeighted) : base(name, isWeighted)
         {
-           Type = GradeBookType.Ranked;
+            Type = GradeBookType.Ranked;
+
         }
 
          public override char GetLetterGrade(double averageGrade)
@@ -23,9 +25,12 @@ namespace GradeBook.GradeBooks
              }
 
              var threshold =
-                 (int) Math.Ceiling(Students.Count *0.2); //20% of Total number of students, Ceiling rounds to nearest whole numbercast to an int as it wikl need to be indexed
-             var grades = Students.OrderByDescending(e => e.AverageGrade).Select(e => e.AverageGrade)
-                 .ToList(); //order by average grade. Need to understand or change this expression.
+                 (int) Math.Ceiling(Students.Count *0.2); //20% of Total number of students, Ceiling rounds to nearest whole numbercast to an int as it will need to be indexed
+             var grades = Students
+                 .OrderByDescending(e => e.AverageGrade)
+                 .Select(e => e.AverageGrade)
+                 .ToList(); //order by average grade.
+           
 
              if (grades[threshold - 1] <= averageGrade)
              {
